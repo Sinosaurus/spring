@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>全屏</title>
+    <style>
+        body,
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        input {
+            outline: none;
+            border: 0;
+        }
+        a {
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .clearfix::before,/*//为什么清除这句话就可以了*/
+        .clearfix::after {
+            content:"";
+            display: block;
+            height: 0;
+            line-height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+        /*---------------------------------*/
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        .container {
+            /*min-width: 320px;
+            max-width: 640px;*/
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .head {
+            height: 45px;
+            width: 100%;
+            background-color: #ccc;
+            position: absolute;
+            top: 0;
+        }
+        .main {
+            /*position: relative;*/
+            padding-top: 45px;
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+
+        }
+        .left {
+            width: 100px;
+            height: 100%;
+            float: left;
+            background-color: #999;
+            overflow: hidden;
+            position: relative;
+
+
+        }
+        .right {
+            /*position:absolute;*/
+            /*width: 100%;*/
+            height: 100%;
+            box-sizing: border-box;
+            margin-left: 100px;
+            overflow:hidden;
+            /*background-color: yellow;*/
+            /*display: flex; !*因为高难以获取，li是动态的，因而两种办法，一 伸缩盒子，二 js获取*!*/
+            flex-direction: column;
+        }
+
+        /*头部设置*/
+        .head .back {
+            box-sizing: border-box;
+            float: left;
+            height: 45px;
+            width: 45px;
+            padding: 12px;
+            background-color: yellow;
+            background: url(./imgs/sprites.png) -9px 13px no-repeat;
+            background-origin: padding-box;
+            background-clip: content-box;
+            background-size: 200px 200px;
+
+        }
+        .head .menu {
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 45px;
+            width: 45px;
+            padding: 12px;
+            background-color: red;
+            background: url(./imgs/sprites.png) -48px 13px no-repeat;
+            background-origin: padding-box;
+            background-clip: content-box;
+            background-size: 200px 200px;
+        }
+        .head form {
+            box-sizing: border-box;
+            margin-left: 45px;
+            padding-right: 45px;
+            padding-top: 2px;
+        }
+        .txt {
+            height: 38px;
+            width: 100%;
+            border-radius: 5px;
+            padding-left: 5px;
+        }
+        input::-webkit-input-placeholder{
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        /*left*/
+        .left li {
+            box-sizing: border-box;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+        a {
+            display: block;
+            color: #666;
+        }
+        .left > ul {
+            position: relative;
+            top: 0;
+            let: 0;
+        }
+
+        /*right*/
+        img {
+            vertical-align: top;
+            width: 100%;
+        }
+        h4 {
+            margin: 0;
+            width: 100%;
+            height: 22px;
+            line-height: 22px;
+            padding: 5px;
+            font-size: 14px;
+        }
+        /*product*/
+        .rightUL {
+            box-sizing: border-box;
+            flex: 1;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            /*background-color: yellow;*/
+        }
+        .product li {
+            float: left;
+            text-align: center;
+            width: 33.33%;
+
+        }
+        p {
+            margin: 0;
+            padding: 5px;
+        }
+        .point {
+            background-color: #fff;
+
+        }
+        .point a {
+            color: #00a4ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <a href="javascript:;" class="back"></a>
+            <form action="">
+                <input type="text" class="txt" placeholder="请输入商品名">
+            </form>
+            <a href="javascript:;" class="menu"></a>
+        </div>
+        <div class="main">
+            <div class="left">
+                <ul>
+                    <li class="point"><a href="javascript:;">热门推荐</a></li>
+                    <li><a href="javascript:;">潮流女装</a></li>
+                    <li><a href="javascript:;">品牌男装</a></li>
+                    <li><a href="javascript:;">内衣配饰</a></li>
+                    <li><a href="javascript:;">家用电器</a></li>
+                    <li><a href="javascript:;">电脑办公</a></li>
+                    <li><a href="javascript:;">手机数码</a></li>
+                    <li><a href="javascript:;">母婴频道</a></li>
+                    <li><a href="javascript:;">图   书</a></li>
+                    <li><a href="javascript:;">家居家纺</a></li>
+                    <li><a href="javascript:;">居家生活</a></li>
+                    <li><a href="javascript:;">家具建材</a></li>
+                    <li><a href="javascript:;">热门推荐</a></li>
+                    <li><a href="javascript:;">潮流女装</a></li>
+                    <li><a href="javascript:;">品牌男装</a></li>
+                    <li><a href="javascript:;">内衣配饰</a></li>
+                    <li><a href="javascript:;">家用电器</a></li>
+                    <li><a href="javascript:;">电脑办公</a></li>
+                    <li><a href="javascript:;">手机数码</a></li>
+                    <li><a href="javascript:;">母婴频道</a></li>
+                    <li><a href="javascript:;">图   书</a></li>
+                    <li><a href="javascript:;">家居家纺</a></li>
+                    <li><a href="javascript:;">居家生活</a></li>
+                    <li><a href="javascript:;">家具建材</a></li>
+                </ul>
+            </div>
+            <div class="right">
+                <a href="javascript:;" class="banner">
+                    <img src="./imgs/banner_1.jpg" alt="">
+                </a>
+                <h4>热门分类</h4>
+                <div class="rightUL"> <!--可以使用overflow： auto 形成滚动条 或者插件-->
+                    <ul class="product clearfix">
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                        <li><a href="javascript:;"><img src="./imgs/nv-fy.jpg"><p>大衣</p></a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+//        左侧导航栏还可以上下滑动，
+//        静态下可以滑动的最大和最小的值
+//        动态下可以滑动的最大和最小值
+        var left = document.querySelector('.left');
+        var l_ulBox = left.children[0];
+        var l_lis = l_ulBox.children;
+        var l_length = l_lis.length;
+//        console.log(l_lis.length)
+//        获取父盒子left盒子的l_ulBox的高度
+        var leftHeight = left.offsetHeight;
+        var l_ulHeight = l_ulBox.offsetHeight;
+
+//        设置静止状态最大值和最小值
+        var minTop = leftHeight - l_ulHeight;//因为向上移动是负值 因而绝对值是最大 的
+        var maxTop = 0;
+//        console.log(minTop)
+//        移动时的最大值和最小值
+        var moveMinTop = minTop - 100; //可以在静态下再超出100
+        var moveMaxTop = maxTop + 100;
+
+//        开始设置 l_ulBox跟着鼠标移动
+//        设置各时期的坐标
+        var startY, moveY, endY, distanceY;
+        endY = 0;
+        l_ulBox.addEventListener('touchstart', function(e) {
+
+            startY = e.targetTouches[0].clientY;
+        })
+        l_ulBox.addEventListener('touchmove', function(e) {
+//            拖动前，先清除transition
+            this.style.transition = 'null';
+            moveY = e.targetTouches[0].clientY;
+//            差值为
+            distanceY = moveY - startY;
+//            开始判断 移动中
+            if (distanceY + endY > moveMaxTop || distanceY + endY < moveMinTop) {
+                return;
+            }
+
+            this.style.top = distanceY + endY + 'px';
+        })
+        l_ulBox.addEventListener('touchend', function() {
+            endY += distanceY; //保存上次差值，因为每次移动只是相对盒子而不是相对left，因而移动需要累加才知道ul离left有多远
+//            由于移动过程中，超出底部或者顶部，因而需要返回到静态时的对应位置
+            if (distanceY + endY > maxTop) {
+                this.style.transition = 'top .3s'
+                this.style.top = maxTop + 'px';
+                endY = maxTop; //清除之前的，便于下次拖动
+            } else if (distanceY + endY < minTop) {
+                this.style.transition = 'top .3s';
+                this.style.top = minTop + 'px';
+                endY = minTop;
+            }
+        })
+
+//        点击时切换背景及字体，同时回到头部
+//        此前需要先封装点击事件
+//        只需要判断touchstart 和 touchend 两个里面进行判断即可
+//
+//        开始时，判断是否是连根手指
+//        结束中，1. 是点击还是按压 通过时间 间隔来做出判断
+//                2.移动距离，以防止抖动，在多少像素内
+//                3. 防止结束时，有人手指跟着一起离开
+
+      /*  var startX, startY , moveX, moveY, startTime;
+        l_ulBox.addEventListener('touchstart', function(e) {
+            if (e.targetTouches.length > 1) {
+                return; // 两根手指
+            }
+            startTime = Date.now();//当前时间
+            startX = e.targetTouches[0].clientX;
+            startY = e.targetTouches[0].clientY;
+        })
+        l_ulBox.addEventListener('touchend', function(e) {
+            moveX = e.changedTouches[0].clientX;
+            moveY = e.changedTouches[0].clientY;//最终结果下，手指的位置
+            if (e.changedTouches.length > 1) {
+                return; //基本上很难碰到
+            }
+            if (Math.abs(moveX - startX) > 6 || Math.abs(moveY - startY) > 6) {
+                return; //此时 已经算是移动了
+            }
+            if (Date.now() - startTime > 200) {
+                return; //已经算是按压了
+            }
+
+            console.log('终于出来了')
+        })*/
+//        进行封装
+        var setClick = {
+            tap: function(obj, callback) {
+//                判断是否是对象
+                if (!obj || typeof obj != 'object') {
+                    return;
+                }
+                var startX, startY , moveX, moveY, startTime;
+                obj.addEventListener('touchstart', function(e) {
+                    if (e.targetTouches.length > 1) {
+                        return; // 两根手指
+                    }
+                    startTime = Date.now();//当前时间
+                    startX = e.targetTouches[0].clientX;
+                    startY = e.targetTouches[0].clientY;
+                })
+                obj.addEventListener('touchend', function(e) {
+                    moveX = e.changedTouches[0].clientX;
+                    moveY = e.changedTouches[0].clientY;//最终结果下，手指的位置
+                    if (e.changedTouches.length > 1) {
+                        return; //基本上很难碰到
+                    }
+                    if (Math.abs(moveX - startX) > 6 || Math.abs(moveY - startY) > 6) {
+                        return; //此时 已经算是移动了
+                    }
+                    if (Date.now() - startTime > 200) {
+                        return; //已经算是按压了
+                    }
+
+//                    console.log('终于出来了')
+                    callback && callback(e);// 等同于判断  居然是用&& 如果前面错 对则执行前面，
+                })
+            }
+        }
+
+//        开始调用
+
+//        var liHeight =
+        setClick.tap(l_ulBox, function(e) {
+//            首先给ul下的li清除类名，同时给每一个添加索引，后面点击时，便可以移动相应的距离
+            for (var i = 0; i < l_length; i++) {
+                l_lis[i].classList.remove('point');
+                l_lis[i].index = i;
+            }
+            var li = e.target.parentNode;
+            li.classList.add('point'); //需要找到li
+
+//            开始移动
+//            先获取索引
+            var liHeight = li.offsetHeight;
+            var index = li.index;
+            if (- index * liHeight <  minTop) {
+                l_ulBox.style.transition = 'top .2s';
+                l_ulBox.style.top = minTop + 'px';
+                endY = minTop;
+            } else {
+                l_ulBox.style.transition = 'top .2s';
+                l_ulBox.style.top = - index * liHeight + 'px';
+                endY = - index * liHeight;
+            }
+        })
+
+
+    </script>
+    <script src="./js/iscroll.js"></script>
+    <script>
+        var rightUl = document.querySelector('.rightUL');
+
+        rightUl.style.position = 'relative';
+        var myScroll = new IScroll('.rightUL', {
+            mouseWheel: true,
+            scrollbars: true
+        });
+        var iScrollIndicator = document.querySelector('.iScrollIndicator');
+        iScrollIndicator.style.backgroundColor = 'red';
+    </script>
+</body>
+</html>
